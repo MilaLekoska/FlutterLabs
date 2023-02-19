@@ -1,9 +1,12 @@
 import 'dart:core';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:lab_196052/Models/exam.dart';
 import 'package:lab_196052/Widgets/newExam.dart';
+import 'Widgets/adaptiveAddButton.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +57,15 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
+  Future<void> _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
   Widget _createBody() {
     return Center(
       child: _exams.isEmpty
@@ -85,7 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () => _addExamFunc(context),
-          )
+          ),
+          Button(
+              'Logout',
+             _signOut,
+          ),
         ]);
   }
 
