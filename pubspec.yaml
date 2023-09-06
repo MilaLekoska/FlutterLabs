@@ -39,6 +39,9 @@ dependencies:
   table_calendar: ^2.1.0
   firebase_auth: ^4.2.8
   flutter_local_notifications: ^9.2.0
+  location: ^4.3.0
+  google_maps_flutter: ^2.1.1
+  flutter_polyline_points: ^1.0.0
 
 dev_dependencies:
   flutter_test:
